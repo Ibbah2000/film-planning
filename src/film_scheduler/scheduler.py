@@ -13,8 +13,11 @@ def calcule_dates(projet: Projet) -> dict[str, int]:
 
     while taches_restantes:
         for tache in taches_restantes:
-            if all(p in fins for p in tache.predecesseurs):
-                debut = max((fins[p] for p in tache.predecesseurs), default=0)
+            if all(p in fins for p, _ in tache.predecesseurs):
+                debut = max(
+                    (fins[p] + delai for p, delai in tache.predecesseurs),
+                    default=0,
+                )
                 fins[tache.nom] = debut + tache.duree
                 taches_restantes.remove(tache)
                 break

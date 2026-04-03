@@ -11,12 +11,12 @@ class Tache(BaseModel):
 
     nom          : identifiant unique de la tâche (ex: 'A')
     duree        : durée en jours (doit être positive)
-    predecesseurs: noms des tâches qui doivent être finies avant
+    predecesseurs: liste de (nom de la tâche, délai en jours)
     """
 
     nom: str
     duree: PositiveInt
-    predecesseurs: list[str] = []
+    predecesseurs: list[tuple[str, int]] = []
 
     def __str__(self) -> str:
         """Affiche la tâche sous forme lisible."""
@@ -24,8 +24,8 @@ class Tache(BaseModel):
             f"tache: {self.nom}",
             f"duree: {self.duree}j",
         ]
-        for predecesseur in self.predecesseurs:
-            lignes.append(f"predecesseur: {predecesseur}")
+        for predecesseur, delai in self.predecesseurs:
+            lignes.append(f"predecesseur: {predecesseur} + {delai}j")
         return "\n".join(lignes)
 
 
@@ -44,7 +44,7 @@ class Projet(BaseModel):
         """Vérifie que tous les prédécesseurs existent dans le projet."""
         noms = {tache.nom for tache in self.taches}
         for tache in self.taches:
-            for predecesseur in tache.predecesseurs:
+            for predecesseur, _ in tache.predecesseurs:
                 if predecesseur not in noms:
                     raise ValueError(f"Prédécesseur '{predecesseur}' introuvable")
         return self
