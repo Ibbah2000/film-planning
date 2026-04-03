@@ -13,3 +13,6 @@ dependencies = [
     "streamlit>=1.55.0",
     "typer>=0.24.1",
 ]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
