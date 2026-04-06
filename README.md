@@ -25,7 +25,8 @@ python cli.py "Mon Film"
 
 Le projet exemple est le montage d'un film avec 11 tâches.
 
-Résultat : ```
+Résultat : 
+```
 Tâche A : finit au jour 30
 Tâche B : finit au jour 57
 Tâche C : finit au jour 58
