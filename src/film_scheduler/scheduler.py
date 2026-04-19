@@ -8,7 +8,7 @@ from src.film_scheduler.models import Projet
 
 def calcule_dates(projet: Projet) -> dict[str, int]:
     """Donne la date de fin au plus tôt pour chaque tâche."""
-    fins = {}
+    fins: dict[str, int] = {}
     taches_restantes = list(projet.taches)
 
     while taches_restantes:

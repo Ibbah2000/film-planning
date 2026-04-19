@@ -23,9 +23,9 @@ for i in range(nombre_taches):
     st.subheader(f"Tâche {i+1}")
     col1, col2 = st.columns(2)
     with col1:
-        nom = st.text_input(f"Nom de la tâche", key=f"nom_{i}", value=f"T{i+1}")
+        nom = st.text_input("Nom de la tâche", key=f"nom_{i}", value=f"T{i+1}")
     with col2:
-        duree = st.number_input(f"Durée (jours)", key=f"duree_{i}", min_value=1, value=1)
+        duree = st.number_input("Durée (jours)", key=f"duree_{i}", min_value=1, value=1)
     predecesseurs_str = st.text_input(
         "Prédécesseurs (ex: A:0, B:15)",
         key=f"pred_{i}",
