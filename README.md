@@ -21,12 +21,7 @@ Un producteur de cinéma doit planifier les tâches suivantes :
 | K | Mixage | 6 | I et J finies |
 | L | Tirage | 1 | fin K + 2j |
 
-## Démonstration
 
-Voici le résultat obtenu en entrant ces tâches dans l'interface :
-
-![Interface Streamlit](images/streamlit.png)
-Remplace le début de ton README par ça et dis-moi quand c'est fait ! 🚀
 
 ## Démonstration
 
@@ -56,4 +51,3 @@ streamlit run app.py
 python cli.py "Mon Film"
 ```
 
-Résultat :
